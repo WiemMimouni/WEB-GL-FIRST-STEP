@@ -1,4 +1,3 @@
-console.log(THREE);
 const scene = new THREE.Scene();
 
 
@@ -16,4 +15,16 @@ const sizes ={
 
 //camera
 const camera = new THREE.PerspectiveCamera(75 , sizes.width / sizes.height ); // the first parametre is the field of view  , the second is the aspect ratio
+camera.position.z = 3; // to see the object we need to move the camera out a little
+// camera.position.x = 2; // to see the object we need to move the camera out a little
+// camera.position.y = 2; // to see the object we need to move the camera out a little
 scene.add(camera);
+
+
+//Renderer
+const canvas = document.querySelector('.webgl') 
+const renderer =new THREE.WebGLRenderer({
+    canvas 
+})
+renderer.setSize(sizes.width, sizes.height);
+renderer.render(scene, camera);
